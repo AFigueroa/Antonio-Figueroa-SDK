@@ -1,0 +1,23 @@
+{
+  "name": "antonio-figueroa-sdk",
+  "version": "1.0.0",
+  "description": "SDK typescript application to extend the Lord of the Rings API and make it accessible to other developers.",
+  "homepage": "https://github.com/AFigueroa/Antonio-Figueroa-SDK#readme",
+  "bugs": {
+    "url": "https://github.com/AFigueroa/Antonio-Figueroa-SDK/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFigueroa/Antonio-Figueroa-SDK.git"
+  },
+  "license": "ISC",
+  "author": "Antonio Figueroa",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"src/**/*.test.js\""
+  },
+  "devDependencies": {
+    "mocha": "^11.7.6"
+  }
+}
