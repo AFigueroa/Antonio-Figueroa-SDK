@@ -1,14 +1,17 @@
-import axios, {AxiosInstance} from "axios";
+import axios from "axios";
+import MoviesService from "./services/MoviesService";
 
-export default class LotrSDK {
-    private http: AxiosInstance;
+export class LotrSDK {
+    public readonly movies: MoviesService;
 
-    constructor(apiKey: string) {
-        this.http = axios.create({
+    constructor(apiKey: string| undefined) {
+        const lotrApi = axios.create({
             baseURL: "https://the-one-api.dev/v2",
             headers : {
                 Authorization: `Bearer ${apiKey}`
             }
         });
+
+        this.movies = new MoviesService(lotrApi)
     }
 }

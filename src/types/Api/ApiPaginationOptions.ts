@@ -1,4 +1,4 @@
-export interface ApiPaginationOptions {
+export default interface ApiPaginationOptions {
     limit: Limit;
     page: Page;
     offset: Offset;

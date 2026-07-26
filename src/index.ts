@@ -1,0 +1,1 @@
+export {LotrSDK} from "./client";
