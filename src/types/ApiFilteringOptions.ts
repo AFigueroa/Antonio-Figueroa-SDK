@@ -1,5 +1,6 @@
 export interface ApiFilteringOption {
-    key: string;
+    filterType: string;
+    parameter: string;
     value: string | number;
     operator: ApiFilteringOperators;
 }
