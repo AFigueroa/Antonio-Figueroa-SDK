@@ -1,5 +1,5 @@
 import axios from "axios";
-import MoviesService from "./services/MoviesService";
+import { MoviesService } from "./services";
 
 export class LotrSDK {
     public readonly movies: MoviesService;

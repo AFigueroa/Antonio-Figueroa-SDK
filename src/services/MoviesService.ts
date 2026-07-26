@@ -1,8 +1,8 @@
 import { AxiosInstance } from "axios";
-import { ApiResponse } from "../types/Api/ApiResponse";
-import { Movie } from "../types/Movie";
+import { ApiResponse } from "../types/Api";
+import { Movie } from "../types";
 
-export default class MoviesService {
+export class MoviesService {
     constructor(private client: AxiosInstance) {}
 
     async getAll(): Promise<ApiResponse<Movie>> {

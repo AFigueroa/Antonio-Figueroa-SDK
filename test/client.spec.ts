@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import LotrSDK from "../src/client";
+import {LotrSDK} from "../src";
 
 describe("add", function () {
   it("should add two numbers", function () {
