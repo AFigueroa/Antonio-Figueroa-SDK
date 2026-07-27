@@ -16,6 +16,24 @@ export class HttpClient {
         this.quotes = new QuotesService(this.client);
     }
     
+    /**
+     * Creates a configured Axios instance for communicating with the LOTR API.
+     *
+     * Configuration includes:
+     * - Base URL: https://the-one-api.dev/v2
+     * - Authorization header containing the LOTR API key
+     * - Default timeout of 8000ms
+     *
+     * Also registers a response interceptor that:
+     * - Throws a descriptive network error when no response is received
+     * - Throws a LOTR API error when the API returns a non-2xx status
+     *
+     * @private
+     * @param apiKey LOTR API key required for authenticated requests.
+     * @returns AxiosInstance Configured Axios client.
+     *
+     * @throws Error if apiKey is missing.
+     */
     private createAxiosInstance(apiKey: string | undefined): AxiosInstance {
         // Check for apiKey
         if (!apiKey) {
