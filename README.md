@@ -15,12 +15,12 @@ The example.ts file demonstrates how to use the SDK locally.
 npm start
 
 ## This executes example.ts, which:
-    -Initializes the HttpClient
-    -Fetches all movies
-    -Fetches a single movie
-    -Fetches quotes for a movie
-    -Filters quotes
-    -Fetches a single quote
+- Initializes the HttpClient
+- Fetches all movies
+- Fetches a single movie
+- Fetches quotes for a movie
+- Filters quotes
+- Fetches a single quote
 
 ## Running Tests:
 The SDK uses Mocha, Chai, and Sinon.
@@ -30,15 +30,15 @@ npm test
 
 ## Building the SDK
 Compile TypeScript into dist/:
-npm run build
+- npm run build
 
 ## This produces:
-dist/
-index.js
-index.d.ts
-client/
-services/
-models/
+- dist/
+- index.js
+- index.d.ts
+- client/
+- services/
+- models/
 
 ## NPM Scripts Overview
 
@@ -48,7 +48,6 @@ models/
 4. start: Runs example.ts using ts-node.
 
 ## Project Structure
-
 - src/
     - index.ts
     - client/
@@ -61,13 +60,13 @@ models/
         - QuotesService.ts
         - index.ts
     models/
-        - Movie.ts
-        - Quote.ts
+    - Movie.ts
+    - Quote.ts
+    - index.ts
+    - Api/
+        - ApiResponse.ts
         - index.ts
-        - Api/
-            - ApiResponse.ts
-            - index.ts
-            - QueryOptions.ts
+        - QueryOptions.ts
 - example.ts
 - test/
 - dist/
