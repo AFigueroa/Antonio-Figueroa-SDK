@@ -5,7 +5,7 @@ export class HttpClient {
     private readonly baseUrl = "https://the-one-api.dev/v2";
     public readonly movies: MoviesService;
     public readonly quotes: QuotesService;
-    public readonly client: AxiosInstance;
+    private readonly client: AxiosInstance;
 
     constructor(apiKey: string | undefined, injectedClient?: any) {
         // Attempt to connect to the LOTR Api (The One Api)

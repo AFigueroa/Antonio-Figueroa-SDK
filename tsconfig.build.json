@@ -4,7 +4,9 @@
     "noEmit": false,
     "sourceMap": true,
     "rootDir": "./src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "declaration": true,
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["example.ts"]

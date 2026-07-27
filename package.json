@@ -1,6 +1,8 @@
 {
   "name": "antonio-figueroa-sdk",
   "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "description": "SDK typescript application to extend the Lord of the Rings API and make it accessible to other developers.",
   "homepage": "https://github.com/AFigueroa/Antonio-Figueroa-SDK#readme",
   "bugs": {
@@ -13,7 +15,6 @@
   "license": "ISC",
   "author": "Antonio Figueroa",
   "type": "commonjs",
-  "main": "index.js",
   "scripts": {
     "start": "npx ts-node example.ts",
     "build": "tsc -p tsconfig.build.json",
@@ -30,6 +31,13 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
   "ts-node": {
     "compilerOptions": {
       "strict": false,

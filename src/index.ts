@@ -1,1 +1,3 @@
-export { HttpClient } from "./client/http-client";
+export { HttpClient } from "./client";
+export * from "./services";
+export * from "./models";
