@@ -1,4 +1,4 @@
-import {LotrSDK} from ".";
+import {LotrSDK} from "./src";
 
 async function init () {
     const lotrSDK = new LotrSDK(process.env.LOTR_API_KEY);
