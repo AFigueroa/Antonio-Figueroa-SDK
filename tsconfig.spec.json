@@ -18,10 +18,10 @@
     "noEmit": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "rootDir": "./test"
+    "rootDir": "./test",
+    "types": ["mocha", "node", "sinon", "chai"]
   },
   "include": [
-    "test/**/*.ts",
-    "test/**/*.spec.ts"
+    "**/*.spec.ts"
   ],
 }
