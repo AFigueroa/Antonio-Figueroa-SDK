@@ -3,5 +3,5 @@ export interface QueryOptions {
     page?: number;
     offset?: number;
     sort?: string; // e.g. "name:asc"
-    filter?: Record<string, string | number>;
+    filter?: Record<string, string>;
 }
