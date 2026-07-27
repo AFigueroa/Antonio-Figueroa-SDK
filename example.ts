@@ -2,6 +2,7 @@ import {HttpClient} from "./src";
 import { QueryOptions } from "./src/models/Api";
 
 async function init () {
+    // Initiate Client using local environment variables
     const client = new HttpClient(process.env.LOTR_API_KEY);
 
     // All movies no query options
@@ -37,12 +38,14 @@ async function init () {
         offset: 0,
         filter: {character: "5cd99d4bde30eff6ebccfca7"}
     };
+    
     const allQuotes = await client.quotes?.getAll(params);
     console.log("----------------------------------");
     console.log("All quotes filtered by CharacterId");
     console.log("----------------------------------");
     console.log(allQuotes);
 
+    // Get single quote by quoteId
     const singleQuote = await client.quotes?.getQuoteById("5cd96e05de30eff6ebcce7ef");
     console.log("----------------------------------");
     console.log("Single quote by QuoteId");
