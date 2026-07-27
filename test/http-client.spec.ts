@@ -21,7 +21,7 @@ describe("HttpClient", () => {
     };
 
     const client = new HttpClient("test-key", fakeClient);
-
+    // Client is private to prevent exposing to public usage
     expect(client.client).to.equal(fakeClient);
     expect(client.movies).to.exist;
   });
