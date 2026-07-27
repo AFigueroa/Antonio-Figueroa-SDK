@@ -9,12 +9,14 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "noEmit": false,
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["mocha", "node", "sinon", "chai"]
   },
   "ts-node": {
     "compilerOptions": {
       "strict": false,
       "noImplicitAny": false
     }
-  }
+  },
+  "include": ["src/**/*.ts", "test/**/*.ts"],
 }

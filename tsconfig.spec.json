@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
     "module": "CommonJS",
@@ -8,6 +9,7 @@
     "strictNullChecks": false,
     "strictFunctionTypes": false,
     "strictBindCallApply": false,
+    "sourceMap": false,
     "strictPropertyInitialization": false,
     "noImplicitThis": false,
     "alwaysStrict": false,
@@ -18,10 +20,7 @@
     "noEmit": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "rootDir": "./test",
-    "types": ["mocha", "node", "sinon", "chai"]
+    "rootDir": "./test"
   },
-  "include": [
-    "**/*.spec.ts"
-  ],
+  "include": ["test/**/*.ts"],
 }
