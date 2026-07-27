@@ -1,2 +1,2 @@
-export * from "./MoviesService";
-export * from "./QuotesService";
+export { MoviesService } from "./movies-service";
+export { QuotesService } from "./quotes-service";

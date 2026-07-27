@@ -1,3 +1,3 @@
-export * from "./Movie";
-export * from "./Quote";
-export * from "./Api";
+export { Movie } from "./movie";
+export { Quote } from "./quote";
+export * from "./api";

@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { ApiResponse, QueryOptions } from "../models/Api";
+import { ApiResponse, QueryOptions } from "../models/api";
 import { Quote } from "../models";
 import { buildQueryParams } from "../client";
 

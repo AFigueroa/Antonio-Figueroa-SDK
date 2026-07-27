@@ -1,5 +1,5 @@
 import {HttpClient} from "./src";
-import { QueryOptions } from "./src/models/Api";
+import { QueryOptions } from "./src/models/api";
 
 async function init () {
     // Initiate Client using local environment variables

@@ -1,4 +1,4 @@
-import { QueryOptions } from "../models/Api";
+import { QueryOptions } from "../models/api";
 
 /**
  * Builds query parameters for LOTR API list endpoints.
