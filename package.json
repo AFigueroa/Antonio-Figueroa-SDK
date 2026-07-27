@@ -18,13 +18,15 @@
   "scripts": {
     "start": "npx ts-node example.ts",
     "build": "tsc -p tsconfig.build.json",
-    "test": "mocha test/**/*.spec.ts"
+    "test": "mocha test/**/*.spec.ts",
+    "coverage": "c8 mocha \"test/**/*.spec.ts\""
   },
   "devDependencies": {
     "@types/chai": "^5.2.3",
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.1.1",
     "@types/sinon": "^22.0.0",
+    "c8": "^12.0.0",
     "chai": "^6.2.2",
     "mocha": "^11.3.0",
     "sinon": "^22.1.0",
@@ -37,7 +39,9 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "ts-node": {
     "compilerOptions": {
       "strict": false,
