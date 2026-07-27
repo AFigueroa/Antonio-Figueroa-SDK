@@ -9,8 +9,7 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "noEmit": false,
-    "sourceMap": true,
-    "types": ["mocha", "node", "sinon", "chai"]
+    "sourceMap": true
   },
   "ts-node": {
     "compilerOptions": {
