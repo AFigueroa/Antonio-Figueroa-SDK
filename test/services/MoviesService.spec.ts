@@ -1,10 +1,10 @@
 import { assert } from "chai";
-import { MoviesService } from "./MoviesService";
-import { LotrSDK } from "../client/client";
+import { MoviesService } from "../../src/services";
+import { HttpClient } from "../../src/client";
 
 // E2E Tests for MoviesSevice using Live API calls
 describe("MoviesService", () => {
-    let client = new LotrSDK(process.env.LOTR_API_KEY).client;
+    let client = new HttpClient(process.env.LOTR_API_KEY).client;
     let service = new MoviesService(client);
 
     it("should return all movies", async () => {

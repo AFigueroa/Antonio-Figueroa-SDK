@@ -1,1 +1,1 @@
-export { LotrSDK } from "./client/client";
+export { HttpClient } from "./client/http-client";
