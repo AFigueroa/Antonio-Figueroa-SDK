@@ -1,17 +1,19 @@
 import axios, { AxiosInstance } from "axios";
-import { MoviesService } from "../services";
+import { MoviesService, QuotesService } from "../services";
 
 export class HttpClient {
     private readonly baseUrl = "https://the-one-api.dev/v2";
     public readonly movies: MoviesService;
+    public readonly quotes: QuotesService;
     public readonly client: AxiosInstance;
 
     constructor(apiKey: string | undefined, injectedClient?: any) {
         // Attempt to connect to the LOTR Api (The One Api)
         this.client = injectedClient ?? this.createAxiosInstance(apiKey);
 
-        // Initiate MoviesService
+        // Initiate services
         this.movies = new MoviesService(this.client);
+        this.quotes = new QuotesService(this.client);
     }
     
     private createAxiosInstance(apiKey: string | undefined): AxiosInstance {

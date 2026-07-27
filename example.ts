@@ -19,18 +19,35 @@ async function init () {
     console.log(singleMovie);
 
     // Get all quotes from movie by id (pagination)
-    const params: QueryOptions = {
+    let params: QueryOptions = {
         limit: 10,
         page: 1,
-        offset: 0,
-        //sort: "dialog|asc", // TODO debug sorting 500 error
-        filter: {character: "5cd99d4bde30eff6ebccfca7"} // TODO debug why filtering is not working
+        offset: 0
     };
     const allQuotesFromMovie = await client.movies?.getMovieQuotes("5cd95395de30eff6ebccde5d", params);
     console.log("----------------------------------");
     console.log("All quotes from movie");
     console.log("----------------------------------");
     console.log(allQuotesFromMovie);
+
+    // Get all quotes (filtered)
+    params = {
+        limit: 10,
+        page: 1,
+        offset: 0,
+        filter: {character: "5cd99d4bde30eff6ebccfca7"}
+    };
+    const allQuotes = await client.quotes?.getAll(params);
+    console.log("----------------------------------");
+    console.log("All quotes filtered by CharacterId");
+    console.log("----------------------------------");
+    console.log(allQuotes);
+
+    const singleQuote = await client.quotes?.getQuoteById("5cd96e05de30eff6ebcce7ef");
+    console.log("----------------------------------");
+    console.log("Single quote by QuoteId");
+    console.log("----------------------------------");
+    console.log(singleQuote);
 
 }
 
