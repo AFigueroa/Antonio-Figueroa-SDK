@@ -15,7 +15,7 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "npx ts-node src/app.ts",
+    "start": "npx ts-node example.ts",
     "build": "tsc -p tsconfig.build.json",
     "test": "mocha src/**/*.spec.ts"
   },
@@ -24,7 +24,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.1.1",
     "chai": "^6.2.2",
-    "mocha": "^11.7.6",
+    "mocha": "^11.3.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   },
