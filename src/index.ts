@@ -1,1 +1,1 @@
-export { LotrSDK } from "./client";
+export { LotrSDK } from "./client/client";

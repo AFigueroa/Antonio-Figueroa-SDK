@@ -1,6 +1,6 @@
 import { AxiosInstance } from "axios";
-import { ApiResponse } from "../types/Api";
-import { Movie } from "../types";
+import { ApiResponse } from "../models/Api";
+import { Movie } from "../models";
 
 export class MoviesService {
     constructor(private client: AxiosInstance) {}
