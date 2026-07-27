@@ -51,24 +51,27 @@ Compile TypeScript into dist/:
 - src/
     - index.ts
     - client/
+        - index.ts
         - http-client.ts
         - query.ts
-        - index.ts
-    - index.ts
     - services/
-        - MovieService.ts
-        - QuotesService.ts
         - index.ts
-    models/
-    - Movie.ts
-    - Quote.ts
-    - index.ts
-    - Api/
-        - ApiResponse.ts
+        - movies-service.ts
+        - quotes-service.ts
+    - models/
         - index.ts
-        - QueryOptions.ts
+        - Movie.ts
+        - Quote.ts
+        - Api/
+            - ApiResponse.ts
+            - index.ts
+            - QueryOptions.ts
 - example.ts
 - test/
+    - http-client.spec.ts
+    - services/
+        - movies-service.spec.ts
+        - quotes-service.spec.ts
 - dist/
 - package.json
 - tsconfig.json

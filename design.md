@@ -35,19 +35,19 @@ Also supports pagination and filtering on list endpoints.
 Services never expose Axios directly; they only return typed models.
 
 ### 2.3 Query Builder
-*The buildQueryParams helper constructs query parameters for list endpoints*:
+The buildQueryParams helper constructs query parameters for list endpoints:
 - Pagination: limit, page, offset
 - Sorting: sort=name:asc
 - Filtering: 
-- operators: =, !=, <, >, >=
-- regex (/pattern/i)
-- exists (field)
-- not exists (!field)
+    - operators: =, !=, <, >, >= (TODO)
+    - regex (/pattern/i)
+    - exists (field)
+    - not exists (!field) (TODO)
 
 Single‑item endpoints never use query params.
 This helper is internal and not exported to SDK consumers.
 
-##2.4 Models
+## 2.4 Models
 The SDK defines TypeScript models for:
 1. Movie
 2. Quote
@@ -65,7 +65,7 @@ Only the following are exported:
 
 Internal helpers and Axios configuration remain private.
 
-3. Build & Packaging Strategy
+### 3. Build & Packaging Strategy
 The SDK is compiled using TypeScript into the dist/ directory using:
 npm run build
 
@@ -75,7 +75,7 @@ The compiled output includes:
 
 This allows local testing and prepares the SDK for future packaging.
 
-4. Testing Strategy
+### 4. Testing Strategy
 The SDK uses:
 - Mocha for test execution
 - Chai for assertions
@@ -90,7 +90,7 @@ Tests cover:
 Developers can run tests locally using:
 - npm test
 
-5. Example Usage
+### 5. Example Usage
 The example.ts file demonstrates:
 - Initializing the client
 - Fetching all movies
