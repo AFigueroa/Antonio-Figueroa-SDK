@@ -3,7 +3,7 @@ import { QueryOptions } from "./src/models/api";
 
 async function init () {
     // Initiate Client using local environment variables
-    const client = new HttpClient(process.env.LOTR_API_KEY);
+    const client = new HttpClient(process.env.LOTR_API_KEY, undefined, "v2");
 
     // All movies no query options
     const movies = await client.movies?.getAll();

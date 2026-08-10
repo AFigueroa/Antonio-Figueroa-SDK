@@ -1,18 +1,18 @@
 import axios, { AxiosInstance } from "axios";
 import { MoviesService, MoviesServiceV3, QuotesService, QuotesServiceV3 } from "../services";
 
-export class HttpClient {
+export class HttpClient<TVersion extends 'v2' | 'v3' = 'v2'> {
     private readonly baseUrl = "https://the-one-api.dev/v2";
     private readonly v3BaseUrl = "https://the-one-api.dev/v3";
-    public readonly movies: MoviesService | MoviesServiceV3;
-    public readonly quotes: QuotesService | QuotesServiceV3;
+    public readonly movies: TVersion extends 'v3' ? MoviesServiceV3 : MoviesService;
+    public readonly quotes: TVersion extends 'v3' ? QuotesServiceV3 : QuotesService;
     private readonly client: AxiosInstance;
 
-    constructor(apiKey: string | undefined, injectedClient?: any, version: 'v2' | 'v3' = 'v2') {
-        const { client, movies, quotes } = this.initializeClientAndServices(apiKey, injectedClient, version);
+    constructor(apiKey: string | undefined, injectedClient?: any, version: TVersion = 'v2' as TVersion) {
+        const { client, movies, quotes } = this.initializeClientAndServices(apiKey, injectedClient, version as 'v2' | 'v3');
         this.client = client;
-        this.movies = movies;
-        this.quotes = quotes;
+        this.movies = movies as TVersion extends 'v3' ? MoviesServiceV3 : MoviesService;
+        this.quotes = quotes as TVersion extends 'v3' ? QuotesServiceV3 : QuotesService;
     }
 
     private initializeClientAndServices(
