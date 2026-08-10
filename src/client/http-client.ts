@@ -1,19 +1,37 @@
 import axios, { AxiosInstance } from "axios";
-import { MoviesService, QuotesService } from "../services";
+import { MoviesService, MoviesServiceV3, QuotesService, QuotesServiceV3 } from "../services";
 
 export class HttpClient {
     private readonly baseUrl = "https://the-one-api.dev/v2";
-    public readonly movies: MoviesService;
-    public readonly quotes: QuotesService;
+    private readonly v3BaseUrl = "https://the-one-api.dev/v3";
+    public readonly movies: MoviesService | MoviesServiceV3;
+    public readonly quotes: QuotesService | QuotesServiceV3;
     private readonly client: AxiosInstance;
 
-    constructor(apiKey: string | undefined, injectedClient?: any) {
-        // Attempt to connect to the LOTR Api (The One Api)
-        this.client = injectedClient ?? this.createAxiosInstance(apiKey);
+    constructor(apiKey: string | undefined, injectedClient?: any, version: 'v2' | 'v3' = 'v2') {
+        const { client, movies, quotes } = this.initializeClientAndServices(apiKey, injectedClient, version);
+        this.client = client;
+        this.movies = movies;
+        this.quotes = quotes;
+    }
 
-        // Initiate services
-        this.movies = new MoviesService(this.client);
-        this.quotes = new QuotesService(this.client);
+    private initializeClientAndServices(
+        apiKey: string | undefined,
+        injectedClient: any,
+        version: 'v2' | 'v3'
+    ): { client: AxiosInstance; movies: MoviesService | MoviesServiceV3; quotes: QuotesService | QuotesServiceV3 } {
+        const baseURL = version === 'v3' ? this.v3BaseUrl : this.baseUrl;
+        const client = injectedClient ?? this.createAxiosInstance(apiKey, baseURL);
+
+        const movies = version === 'v3'
+            ? new MoviesServiceV3(client)
+            : new MoviesService(client);
+
+        const quotes = version === 'v3'
+            ? new QuotesServiceV3(client)
+            : new QuotesService(client);
+
+        return { client, movies, quotes };
     }
     
     /**
@@ -34,14 +52,14 @@ export class HttpClient {
      *
      * @throws Error if apiKey is missing.
      */
-    private createAxiosInstance(apiKey: string | undefined): AxiosInstance {
+    private createAxiosInstance(apiKey: string | undefined, baseURL: string): AxiosInstance {
         // Check for apiKey
         if (!apiKey) {
             throw new Error("Missing LOTR_API_KEY environment variable");
         }
         // Api key found. Connect to the api
         const client = axios.create({
-            baseURL: this.baseUrl,
+            baseURL,
             headers : {
                 Authorization: `Bearer ${apiKey}`
             },
